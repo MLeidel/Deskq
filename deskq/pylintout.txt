@@ -1,0 +1,15 @@
+************* Module deskq
+deskq.py:13:0: C0413: Import "from gi.repository import Gtk, Gdk" should be placed at the top of the module (wrong-import-position)
+deskq.py:58:4: R0201: Method could be a function (no-self-use)
+deskq.py:173:12: C0103: Variable name "h" doesn't conform to snake_case naming style (invalid-name)
+deskq.py:203:20: W0123: Use of eval (eval-used)
+deskq.py:230:12: C0103: Variable name "e" doesn't conform to snake_case naming style (invalid-name)
+deskq.py:119:4: R0912: Too many branches (33/12) (too-many-branches)
+deskq.py:119:4: R0915: Too many statements (85/50) (too-many-statements)
+deskq.py:274:4: R0201: Method could be a function (no-self-use)
+deskq.py:280:4: R0201: Method could be a function (no-self-use)
+deskq.py:290:4: R0201: Method could be a function (no-self-use)
+
+------------------------------------------------------------------
+Your code has been rated at 9.48/10 (previous run: 9.17/10, +0.31)
+
