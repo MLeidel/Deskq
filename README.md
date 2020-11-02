@@ -1,5 +1,4 @@
 # DeskQ
-Desktop command-line utility (Python version)
 for Linux, (Windows, MacOS)
 
 The purpose of DeskQ is to provide a way to access or start stuff  
@@ -56,7 +55,7 @@ Below is a list of the possibilities.
 |**eu**|edit saved URL list (urls.lst)|
 |**ec**|edit saved clips text (clips.txt)|
 |**eh**|edit saved search history (hist.csv)|
-|**es**|edit custom command / services file (services.csv)|
+|**es**|edit custom command / services file (serv.txt)|
 |**ee**|edit name of your text editor|
 |**help**|view this help|
 |**up/down arrow** keys|recall last command or search text|
@@ -67,34 +66,41 @@ _Use the **`hist`** command to pop up a dialog of your
 saved searches._  
 ![history](images/historyShow.png "hist")
 
-## System commands and web services
+## System commands and website directed searches
 
-In `services.csv` you can set up custom searches and 
+In `serv.txt` you can set up custom searches and 
 local commands to run programs.  
-Use `es` to edit `services.csv` file. 
+Use `es` to edit `serv.txt` file. 
 
 
-The `services.csv` file holds your custom commands and links.  
-The entries in `services.csv` basically takes two forms:
-* ### commands  
+The `serv.txt` file holds your custom commands and links.  
+The entries in `serv.txt` basically takes two forms:
+- URL links and system commands
+- website directed searches
+
+* ### Links and system commands  
   Commands can be either URLs or system commands.  
   The first character of each line must begin with  
   either a "$"  ";" or "."  
-  The general format is:  
+  The general format is:
+  
   $*command-you-will-type*, URL | fullpath/command-line  
   
-  #### examples:  
+  #### examples from a serv.txt file:  
     `$git,https://github.com`  
     `;dev,dev.sh`  
     `;shutdown,shutdown now`  
     `.reboot,reboot`  
   
   
-  To access these commands in Deskq you could type any  
-  of the following .. and hit Enter or click the action button.  
+  To perform these commands in Deskq you would type in  
+  the command and hit Enter or click the action button.  
+  Use any one of these characters ($ . ;) to preface  
+  the command. For instance you could type a command  
+  called "dev" in any of these forms: .dev ;dev $dev
   
    
-  | you type | resulting action |
+  | **command** | resulting action |
   | :---------- | :-------------------- |
   |`$git`|opens github.com in your browser|  
   |`.dev`|executes your shell script to ... ?|  
@@ -104,17 +110,22 @@ The entries in `services.csv` basically takes two forms:
   |`;reboot`|reboots your machine|
   |`;reb`|reboots your machine|
   
-  As shown it helps to order your commands assending which  
-  should allow for unique substrings as your commands  
-  become familiar from use.  
+  As shown it helps to create your commands in "serv.txt"  
+  in assending order which should allow for unique substrings  
+  as your commands become familiar from use.  
   
-* ### Search in web services with custom querystrings  
+* ### Website directed searches
   These must be URLs with a ?querystring.  
   The first character of each line must begin with  
   a single letter (a-z, 1-0). They cannot begin with  
    "$"  ";" or ".".  
-  The general format is:  
+  The general format is:
+  
   *?,name,website-URL + left-side-of-query-string=*  
+  
+  You may have to experiment with each website to learn  
+  how it formats their search querystring.  
+  
   #### examples:  
   `a,Amazon,https://smile.amazon.com/s/ref=nb_sb_noss_1?field-keywords=`
   
@@ -122,7 +133,7 @@ The entries in `services.csv` basically takes two forms:
   
   `p,Php,http://php.net/manual-lookup.php?pattern=` 
   
-  Use these like this:  
+  Use like this:  
   
   `a:mini computers`  
   `i:wallpaper for Linux Mint`  
@@ -138,13 +149,14 @@ To save a URL copy (or select and drag, linux only) it into DeskQ and hit Enter.
 To view and re-open saved URLs type **`list`** into DeskQ and hit Enter.  
 
 To save text that you've copied into your system clipboard just type **`sc`**  
-or click the action button.  
+or click the action button with the entry field empty.  
+
 To view/edit text you've saved just type **`ec`** Enter.  
-Your text editor will pop-up with all of your clippings.
+Your text editor will pop-up with all of your clips.
 
 <br>
 #### You specify the text editor
-Before you start using DeskQ edit the `editor.txt` one line file  
+Before you start using DeskQ edit the `edit.txt` one line file  
 putting in the name to start your text editor.  
 * _example:_  
   `notepad.exe`  
@@ -159,8 +171,7 @@ putting in the name to start your text editor.
 
 | |  |
 | ----- | ----- |
-|`clips.txt`|text file of clippings|
-|`deskq.glade`|used by deskq.py |
+|`clip.txt`|text file of clippings|
 |`deskq.py`|DeskQ main source|
 |`hist.txt`|text file of search history|
 |`serv.txt`|text file of $ commands and special querys|
