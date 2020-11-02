@@ -7,11 +7,17 @@ import os
 import sys
 import subprocess
 import urllib.parse
+import time
 from time import strftime
 import gi
 
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
+
+try:
+    from googlesearch import search
+except ImportError:
+    print("No module named 'google' found")
 
 
 class Mainclass:
@@ -81,7 +87,7 @@ class Mainclass:
 
     def on_btn_action_clicked(self, widget):
         """
-        Clicking the arrow button right side
+        Clicking the ■ button right side
         of entry field has two actions:
         1. Do whatever is in the entry field
         If nothing in entry field then:
@@ -137,8 +143,8 @@ class Mainclass:
             # write to top of urls.txt
             self.writeurl(stext)
 
-        elif stext.lower().startswith("u:"):  # launch the URL
-            stext = stext[2:]
+        elif stext.lower().startswith("go:"):  # launch the URL
+            stext = stext[3:]
             if stext.startswith("http"):
                 self.writehist(stext)  # save to history (hist.txt)
                 webbrowser.open(stext)
@@ -158,7 +164,9 @@ class Mainclass:
                                 cmd = ary[1].rstrip().split(" ")
                                 subprocess.Popen(cmd)
                             else:
-                                os.system(ary[1].rstrip())  # process w/o args
+                                cmd = ary[1].rstrip()
+                                print(cmd)
+                                subprocess.Popen([cmd])
                                 # obj.set_text("")
 
         elif len(stext) > 1 and stext[1] == ":":  # launching a service request
@@ -193,10 +201,10 @@ class Mainclass:
         elif stext.lower() == "help":  # edit / view help file
             self.open_editor("help.txt")
 
-        elif stext.lower().startswith("ex:"):  # execute something
+        elif stext.lower().startswith("ex:"):
             stext = stext[3:]
-            cmd = stext.rstrip().split(" ")
-            subprocess.Popen(cmd)
+            lcmd = stext.split(" ")  # convert the command line into a python List
+            subprocess.Popen(lcmd)
 
         elif stext.lower().startswith("eval:"):
             stext = stext[5:]
@@ -206,6 +214,14 @@ class Mainclass:
             print(stext)
             oentry.set_text(stext)
             return
+
+        elif stext.startswith(">"):   # google search
+            stext = stext[1:]
+            self.writehist(stext)  # save to history (hist.txt)
+            for j in search(stext, tld="com", num=5, stop=5, pause=3):
+                # print(j)
+                webbrowser.open(j)
+                time.sleep(1)
 
         elif stext.lower() == "cap":
             if self.deco:
