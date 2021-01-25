@@ -17,7 +17,7 @@ These files must be present
     seaq.txt        URL query text
 
 
-    To activate a command hit Enter or click arrow button
+    To activate a command hit Enter or click ■ button
     Note: You can drag & drop text into the Entry box as well.
 
         1. Enter URL (or URL in clipboard)
@@ -25,7 +25,9 @@ These files must be present
 
         2. Enter text for a search
         ----> runs the search in your browser
-            and saves to "hist.txt" file
+                and saves to "hist.txt" file
+            Enter "go:" and URL to open that url
+            Enter ">" and search text to do "feeling lucky" search.
 
         3. Enter "sc" (or click arrow button)
         ----> saves clipboard contents:
@@ -40,7 +42,7 @@ These files must be present
         ----> opens dialog with list of search texts
             click on a row launches in browser
 
-        6. "eval:" & some math
+        6. "?" & some math
         ----> places answer in clipboard
             and in the searchbox
 

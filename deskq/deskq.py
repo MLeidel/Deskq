@@ -1,6 +1,7 @@
 """
 deskq is a desktop utility for Linux
 Author: Michael Leidel (2020)
+Jan 21, changed 'eval:' to '?'
 """
 import webbrowser
 import os
@@ -156,18 +157,16 @@ class Mainclass:
                 for srv in f_handle:
                     if srv[1:].startswith(stext[1:]):  # skip the "$;." tag
                         ary = srv.split(",")
-                        if "http" in srv:
-                            webbrowser.open(ary[1].rstrip())  #  URL
+                        cmd = ary[1].strip()
+                        if cmd.startswith("http"):
+                            webbrowser.open(cmd)  #  URL
                             # obj.set_text("")
                         else:
-                            if " " in ary[1]:  # process with arguments
-                                cmd = ary[1].rstrip().split(" ")
+                            if " " in cmd:  # process with arguments
+                                cmd = cmd.split(" ")
                                 subprocess.Popen(cmd)
                             else:
-                                cmd = ary[1].rstrip()
-                                print(cmd)
                                 subprocess.Popen([cmd])
-                                # obj.set_text("")
 
         elif len(stext) > 1 and stext[1] == ":":  # launching a service request
             with open("serv.txt", "r") as f_handle:
@@ -206,13 +205,13 @@ class Mainclass:
             lcmd = stext.split(" ")  # convert the command line into a python List
             subprocess.Popen(lcmd)
 
-        elif stext.lower().startswith("eval:"):
-            stext = stext[5:]
+        elif stext[0] == '?':
+            stext = stext[1:]
             stext = eval(stext)
             stext = str(stext)
             self.clipboard.set_text(stext, -1)
             print(stext)
-            oentry.set_text(stext)
+            oentry.set_text('?' + stext)
             return
 
         elif stext.startswith(">"):   # google search
