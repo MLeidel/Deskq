@@ -1,0 +1,24 @@
+Coedit SETTINGS:
+
+The "settings" file is stored in:
+	/home/$USER/.config (Linux)
+	AppDirectory (Windows)
+	
+
+Use the "Settings" option on the File menu.
+
+You need not edit the 1st line as that is the geometry
+and will be updated by just moving and resizing
+the window.
+
+Options are:
+1. geometry
+2. font name
+3. font size
+4. background color
+5. foreground color
+
+Change any of items 2 - 5 and then
+save (Ctrl-s or using the menu).
+
+Do not do a Save-As.

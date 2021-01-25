@@ -1,0 +1,19 @@
+--- COMMANDS ---
+;brave,C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe
+$calendar,https://calendar.google.com/calendar/r?pli=1
+$contacts,https://contacts.google.com
+$drive Google,https://drive.google.com/drive/my-drive?ths=true
+$git,https://github.com
+$edit,notepad.exe untitled
+;ff,C:\Program Files\Mozilla Firefox\firefox.exe
+$mso,https://www.office.com/?auth=1
+$office,https://www.office.com/?auth=1
+;shutdown,shutdown -s -t 000
+--- SERVICES ---
+a,Amazon,https://smile.amazon.com/s/ref=nb_sb_noss_1?field-keywords=
+m,Google Maps,https://www.google.com/maps/search/
+y,YouTube,https://www.youtube.com/results?search_query=
+i,Google Images,http://images.google.com/images?q=
+w,Wikipedia,https://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&fulltext=Search&search=
+b,B4X,https://www.b4x.com/android/forum/
+p,Php,http://php.net/manual-lookup.php?pattern=

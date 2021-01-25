@@ -1,0 +1,97 @@
+Help for "deskq"
+================
+Windows version
+
+To run: python deskq.pyw
+
+These files must be present
+    in the DeskQ directory:
+
+    serv.txt    user defined commands
+    hist.txt    record of searches
+    clip.txt    saved clipboard texts
+    edit.txt    name of your text editor
+    urls.txt    list of saved URLs
+    coor.txt    window position & size ...
+    seaq.txt    URL query text
+    deskq.pyw   Python program
+
+
+    To activate a command hit Enter or click arrow button
+    Note: You can drag & drop text into the Entry box as well.
+
+        1. Enter URL (or URL in clipboard)
+        ----> saves URL to "urls.lst" file
+
+        2. Enter text for a search
+        ----> runs the search in your browser
+            and saves to "hist.csv" file
+
+        3. Enter "sc" (or click arrow button)
+        ----> saves clipboard contents:
+            URL saves to "urls.lst"
+            Text saves to "clips.txt"
+
+        4. "list"
+        ----> opens dialog with list of saved URLs
+            click on a row launches in browser
+
+        5. "hist"
+        ----> opens dialog with list of search texts
+            click on a row launches in browser
+
+        6. "?" & some math
+        ----> places answer in clipboard
+            and in the searchbox
+
+        7. "cap"
+        ----> toggles the "window" caption (decoration)
+            use the caption to move the window to
+            your desired position on the desktop
+
+	8. "top"
+	----> toggles the "window" topmost status
+
+        9. "winset"
+        ----> saves the current window position, size,
+            and decoration status
+
+       10. up arrow or down arrow
+	----> puts last command into the entry field
+
+    Enter:
+    "eu"    edit the urls.lst file
+    "ec"    edit the clips.txt file
+    "eh"    edit the hist.csv file
+    "es"    edit the services.csv file
+    "ee"    edit the editor.txt file (the name of your text editor)
+            The default editor is "gedit" you can change it with
+            the "ee" command, or edit the editor.txt file directly.
+    "help"  edit/view this file (help.txt)
+
+    You are responsible for setting up the services and commands
+    which are entered in the services.csv file.
+    commands must start with one of these 3 characters  ;.$
+    (see services.csv for examples)
+
+    Targeted web searches (services) must begin with one letter and a
+    colon (:) (see services.csv for examples)
+
+    Here is the services.csv file that comes with the distribution:
+
+    ----COMMANDS----
+;git,https://github.com
+;greatcourses,https://www.thegreatcourses.com/
+;term,x-terminal-emulator
+;news,https://microsoftnews.msn.com
+;reboot,reboot
+----SERVICES----
+a,Amazon,https://smile.amazon.com/s/ref=nb_sb_noss_1?field-keywords=
+m,Google Maps,https://www.google.com/maps/search/
+y,YouTube,https://www.youtube.com/results?search_query=
+i,Google Images,http://images.google.com/images?q=
+w,Wikipedia,https://en.wikipedia.org/w/index.php?title=Special:Searc. . . .
+p,Php,http://php.net/manual-lookup.php?pattern=
+
+=================================================================
+
